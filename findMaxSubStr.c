@@ -9,6 +9,10 @@ because we will no longer continue to use that as part of our maxLength
 5. update the char buffer and compute the curLen
 6. Only if curLen exceeds the prev max length, replace the maxLen and the startIdx of that
 max length substring
+
+'''actual solution can be found at: 
+https://www.geeksforgeeks.org/length-of-the-longest-substring-without-repeating-characters/""
+
 */
 
 
