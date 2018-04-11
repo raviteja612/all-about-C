@@ -1,3 +1,9 @@
+/*
+allocate heap memory inside the function call and return that to the main function.
+Using malloc will allocate the heap memory inside the called function and will persist in the main function when it is returned.
+*/
+
+
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
