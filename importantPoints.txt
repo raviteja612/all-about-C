@@ -1,0 +1,46 @@
+/* This document highlights some of the key take aways from the course */
+
+1. calloc allocates memory and initializes with all zeros
+Syntax: int *ptr = (int *) calloc(count, sizeof(datatype))
+
+2. structure variable "v" can be used to access its members using "." operator, whereas a pointer to a structure variables
+can use "->" operator to access its members. Both of them would result in the value of the members.
+So if a struct member is a pointer, use dereferencing to access its values
+
+Ex:
+struct Books{
+int num;
+int *pNum;
+} *pBooks;
+
+pBooks->num gives its value and &pBooks->num gives the address of num.
+pBooks->pNum results in the address pointed by pNum and *pBooks->pNum results in the value at that address
+
+
+3. Data alignment:
+Lecture 26 in the Udemy course defines how a data is aligned by C compiler.
+Let's say if a struct has int, double and other data types, then for efficient memory allcation, it checks for the longest data type in the struct.
+A struct like this:
+{
+int a;
+double b;
+int c;
+}
+Gets 8bytes, 8bytes and 8bytes -- all aligned one below the Otherwise
+
+where as the same struct defined this way:
+{
+int a;
+int b;
+double c;
+}
+allocates 4bytes + 4bytes as a single word followed by the 8bytes for the float.
+
+Hence it is always good practice to malloc a pointer to a struct using the sizeof(struct) rather than the definite number. One other reason why it is a
+bad practice is because the size of that differs from compiler to compiler.
+
+4. You can return a pointer to a local variable from a function if you used malloc to allocate memory to that pointer.
+Otherwise the pointer loses its allocation when it is returned from the function. Because in the first case it is allocated in heap which persists,
+whereas in the latter case it is allocated in the stack and hence gets dumped.
+The best way would be to allocate outside of the function call and pass the pointer inside the function so that the
+function is independent of what data type it is receiving and can focus on the actual functionality
