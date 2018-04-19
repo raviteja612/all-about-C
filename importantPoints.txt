@@ -35,6 +35,7 @@ int b;
 double c;
 }
 allocates 4bytes + 4bytes as a single word followed by the 8bytes for the float.
+This is the reason why we define all the int variables at a single place and all the floats together in our code for efficient memory utilization.
 
 Hence it is always good practice to malloc a pointer to a struct using the sizeof(struct) rather than the definite number. One other reason why it is a
 bad practice is because the size of that differs from compiler to compiler.
@@ -44,3 +45,5 @@ Otherwise the pointer loses its allocation when it is returned from the function
 whereas in the latter case it is allocated in the stack and hence gets dumped.
 The best way would be to allocate outside of the function call and pass the pointer inside the function so that the
 function is independent of what data type it is receiving and can focus on the actual functionality
+
+5. Pointer arithmetic (moving the pointer to the next element like p+1) cannot be done for generic pointers like (void) pointers
