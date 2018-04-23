@@ -7,6 +7,8 @@ Create an array of mxLength in a structure and maintain a variable to check the 
 Initiate to -1. IF it stays there then you cannot pop anything.
 If it exceeds the maxLength then you cannot push anything.
 All it needs is to send the pointer to this structure into each of push, pop and display
+
+--URL: https://www.sanfoundry.com/c-program-stack-implementation/
 */
 
 
