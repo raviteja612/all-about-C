@@ -47,3 +47,9 @@ The best way would be to allocate outside of the function call and pass the poin
 function is independent of what data type it is receiving and can focus on the actual functionality
 
 5. Pointer arithmetic (moving the pointer to the next element like p+1) cannot be done for generic pointers like (void) pointers
+
+6. For plain stack:
+Create an array of predefined length within a struct
+
+For stack using pointers
+Create a pointer to itself of same structure type

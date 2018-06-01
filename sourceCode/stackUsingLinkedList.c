@@ -1,82 +1,95 @@
 /*
----Stack implementation description using Linkedlist---
+---Stack implementation description using Linkedlist (Pointers)
+
+Here create a pointer to itself of type struct
 */
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 
-struct node {
-  int val;
-  struct node *ptr;
+/*Macros*/
+#define MAXELEMS 50
+
+struct stack{
+	int elem;
+	struct stack *strPtr;
 };
-typedef struct node NODE;
+typedef struct stack STACK;
+STACK *strInit;
+	
+/*function prototypes*/
+int push (int pushElem);
+int pop(void);
+int disp(void);
 
-NODE *push (NODE *pNode, int pushElem)
-{
-  NODE *localPtr = (NODE *)malloc(sizeof(NODE));
-  if (localPtr == NULL)
-  {
-    printf("Insufficient memory \n");
-  }
-  pNode->val = pushElem;
-  localPtr->ptr = pNode; //connect the newly created one to the old struct
-
-  return localPtr; //need to return the address of the newly created struct
-}
-
-NODE *pop(NODE *pNode)
-{
-  if (pNode->ptr == NULL)
-  {
-    printf("stack is empty \n");
-  }
-  else
-  {
-    printf("Popping the element %d\n ", pNode->val);
-    pNode = pNode->ptr;
-  }
-  return pNode;
-}
-
-void display(NODE *pNode)
-{
-  NODE *localPtr = pNode;
-  printf("Displaying the elements \n");
-  while (localPtr->ptr != NULL)
-  {
-    printf("%d \n", localPtr->val);
-    localPtr = localPtr->ptr;
-  }
-}
-
+static int ctr = -1;
 int main()
 {
-  NODE nodeStr;
-  NODE *pNode = &nodeStr;
-  pNode->ptr = NULL;
-  int choice, pushElem;
-  while(1)
-  {
-    printf("What action do you want to do? \n 0. Push \n 1. Pop \n 2. Display \n");
-    scanf("%d", &choice);
-  switch (choice) {
-    case 0:
-      printf("Element you want to push: ");
-      scanf("%d", &pushElem);
-      pNode = push (pNode, pushElem);
-      break;
+	
+	int option, pushElem, keepGoing=1;
+	
+	while (keepGoing)
+	{
+		printf("What do you want to do? \n 1.Push \n 2.Pop \n 3.Display \n");
+		scanf("%d", &option);
+		switch (option)
+			{
+				case 1:
+					printf("Element you want to push: \n");
+					scanf("%d", &pushElem);
+					push (pushElem);
+					break;
+				case 2: 
+					pop();
+					break;
+				case 3:
+					disp();
+					break;
+				default:
+					printf("Invalid option");
+					break;
+					
+			}
+		printf("do you want to keep going? (Y=1, N=0) \n");
+		scanf("%d", &keepGoing);
+	}
+	printf("Completed");
+	
+	return 0;
+}
 
-    case 1:
-      pNode = pop(pNode);
-      break;
-
-    case 2:
-      display(pNode);
-      break;
-
-    default:
-      printf("Invalid choice \n");
-      break;
-      }
-    }
+int push (int pushElem)
+{
+	STACK *new = (STACK *)malloc(sizeof(STACK));
+	new->elem=pushElem;
+	new->strPtr=strInit;
+	strInit=new;
+	ctr +=1;
+	return 0;
+}
+int pop()
+{
+	if (strInit == NULL)
+	{
+		printf("Stack is empty \n");
+		
+	}
+	else
+	{
+		printf("Popping the element %d \n", strInit->elem);
+		strInit = strInit->strPtr;
+		ctr -= 1;
+	}
+	return 0;
+}
+int disp()
+{
+	STACK *dispPtr = strInit;
+	while (dispPtr != NULL)
+	{
+		printf("%d \n", dispPtr->elem);
+		dispPtr = dispPtr->strPtr;
+		
+	}
+	return 0;
 }

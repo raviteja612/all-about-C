@@ -9,6 +9,12 @@ If it exceeds the maxLength then you cannot push anything.
 All it needs is to send the pointer to this structure into each of push, pop and display
 
 --URL: https://www.sanfoundry.com/c-program-stack-implementation/
+
+For plain stack:
+Create an array of predefined length within a struct
+
+For stack using pointers
+Create a pointer to itself of same structure type
 */
 
 
