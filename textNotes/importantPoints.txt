@@ -53,3 +53,12 @@ Create an array of predefined length within a struct
 
 For stack using pointers
 Create a pointer to itself of same structure type
+
+7. Enums are self-declared data types
+
+Ex: enum Week{Mon, Tue, Wed);
+enum Week day = 2;
+if (day==Tue)
+
+The practical application would be to name the API values. Say targetDetectionVad takes values from 0 to 7
+While checking the API value in the code, it is more intuitive to use these rather than direct numbers
