@@ -62,3 +62,49 @@ if (day==Tue)
 
 The practical application would be to name the API values. Say targetDetectionVad takes values from 0 to 7
 While checking the API value in the code, it is more intuitive to use these rather than direct numbers
+
+8. function pointers can be used to call a function.
+Not much real use.
+Example:
+int square (int a)
+{
+return a*a;
+}
+
+(int) (*funcPtr)(int);
+funcPtr = square;
+int output = funcPtr(3);
+
+9. memcpy helps to create an extra copy of the data. 
+but while copying so, say a structure, has another pointer within it, then that needs to be copied separately. 
+Other wise, both the copies refer to the same memory location. Like in python (copy.deepcopy)
+
+10. char *b = (char *)malloc(10);
+free(b);
+free(b);
+
+Doing this twice will be problematic for some compilers.
+
+11. Memory leaks occur when a pointer pointing to a memory is not freed.
+If you create a for loop and allocate the memory to a variable. Then you need to free it everytime.
+
+12. char *c = (char *)malloc(100);
+char *b ;
+b = c;
+free(c);
+strcpy(b, "hello");
+This will be a problem coz "b" points to a freed memory
+
+13. char* func(void)
+{
+ char b[10]= "Hello";
+ char *bb = (char *)malloc(10);
+ strcpy(bb, "hello");
+ 
+ //Here b is allocated on stack while bb on heap. So returning b and  trying to access the data will be a problem
+ 
+ 14. char *b = NULL;
+ b[0] = "s";
+ This will be a problem since b points to nothing
+
+}
