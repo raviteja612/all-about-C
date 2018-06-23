@@ -1,0 +1,33 @@
+The best performing sorting is with complexity O(n*logn)
+
+Merge sort - O (n*logn)
+Quick sort - O(n^2)
+
+Binary search tree takes O(log n)
+Binary search tree - nodes to its left are small and nodes to its right are bigger
+
+Bitwise operators:
+Integers are stored as bits. MSB is for sign. Take two's compliment to get the representation of a negative number
+-4 = 2s compliment of (00000100) = 11111011 + 00000001 = 11111100
+
+---- for a signed 8bits this is the order in which it is saved: 0,1,2,...127 -128, - 127...-1
+---- so if you right shift by more than the desired it will underflow and stay at 0.
+----- If you left shift then beyond 127, it will fold back to negative numbers
+--- x & (x-1) =0 then x is power of 2.
+and = &
+or = |
+xor = ^
+<< = left shift
+>> = right shift
+~ = negate
+
+>> In an array of unsorted integers, every value appears twice except one value.
+Find the value:
+
+Answer: Keep doing XOR (^) for all values. Since XOR will cancel out similar ones, towards the end of the list we will get back the 
+value that exists once.
+
+Queue using stacks and maximum subarray:
+http://courses.csail.mit.edu/iap/interview/Hacking_a_Google_Interview_Practice_Questions_Person_B.pdf
+
+
