@@ -10,7 +10,7 @@ int powerOf2(int n)
 
 int main()
 {
-	int n = 32;
+	int n = 3;
 	printf("%d is the 2 to the power of %d \n", powerOf2(n), n);
 	return 0;
 }
